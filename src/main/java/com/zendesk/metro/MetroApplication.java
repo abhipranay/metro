@@ -14,8 +14,14 @@ import java.text.ParseException;
 public class MetroApplication {
 
     @Bean
-    public MetroSystem metroSystem() throws IOException, ParseException {
-        IStationDataReader dataReader = new CsvStationDataReader();
+    public IStationDataReader dataReader() {
+        return new CsvStationDataReader();
+    }
+
+    @Bean
+    @Autowired
+    public MetroSystem metroSystem(IStationDataReader dataReader)
+            throws IOException, ParseException {
         Iterable<InfoTuple> infoTuples = dataReader.readData();
         MetroSystem metroSystem = MetroSystem.getInstance();
         metroSystem.boot(infoTuples);
@@ -29,8 +35,7 @@ public class MetroApplication {
 
     @Bean
     @Autowired
-    public RoutesFinder metroGraph(
-            MetroSystem metroSystem, TravelTimeStrategy travelTimeStrategy) {
+    public RoutesFinder metroGraph(MetroSystem metroSystem, TravelTimeStrategy travelTimeStrategy) {
         return new RoutesFinder(metroSystem, travelTimeStrategy);
     }
 

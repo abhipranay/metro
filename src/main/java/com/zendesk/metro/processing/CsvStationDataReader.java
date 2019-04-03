@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import static java.lang.System.in;
 
+/** Class reads csv files StationMap.csv from class path */
 public class CsvStationDataReader implements IStationDataReader {
     private static final String DEFAULT_SEPARATOR = ",";
 

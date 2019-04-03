@@ -2,7 +2,7 @@ package com.zendesk.metro.processing;
 
 import java.util.Calendar;
 
-/** Sunday = 1 */
+/** Class contains constraints mentioned in Bonus section */
 public class TravelTimeStrategy {
     int getTimePerHop(
             LineStation currentLineStation, LineStation nextLineStation, Calendar currentTime) {
