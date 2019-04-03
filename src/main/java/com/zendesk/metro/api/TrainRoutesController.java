@@ -2,8 +2,8 @@ package com.zendesk.metro.api;
 
 import com.zendesk.metro.api.dto.FindRoutesRequest;
 import com.zendesk.metro.api.dto.TrainRoutesResponse;
-import com.zendesk.metro.processing.MetroStation;
-import com.zendesk.metro.processing.Path;
+import com.zendesk.metro.processing.metrosystem.MetroStation;
+import com.zendesk.metro.processing.route.Path;
 import com.zendesk.metro.services.TrainRoutesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.data;
 
 import java.util.Calendar;
 
@@ -15,19 +15,19 @@ public class InfoTuple {
         this.openingDate = openingDate;
     }
 
-    String getStationCode() {
+    public String getStationCode() {
         return stationCode;
     }
 
-    String getStationName() {
+    public String getStationName() {
         return stationName;
     }
 
-    Calendar getOpeningDate() {
+    public Calendar getOpeningDate() {
         return openingDate;
     }
 
-    int getStationNumber() {
+    public int getStationNumber() {
         return stationNumber;
     }
 }

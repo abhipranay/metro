@@ -1,8 +1,10 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.route;
+
+import com.zendesk.metro.processing.metrosystem.LineStation;
 
 import java.util.Calendar;
 
-class Hop {
+public class Hop {
     private LineStation lineStation;
     private LineStation fromStation;
     private Calendar boardingTime;
@@ -21,10 +23,6 @@ class Hop {
 
     public LineStation getLineStation() {
         return lineStation;
-    }
-
-    public Calendar getBoardingTime() {
-        return boardingTime;
     }
 
     public LineStation getFromStation() {

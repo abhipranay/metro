@@ -1,4 +1,4 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.route;
 
 import org.springframework.stereotype.Component;
 

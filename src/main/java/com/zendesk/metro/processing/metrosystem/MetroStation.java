@@ -1,4 +1,4 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.metrosystem;
 
 import java.util.Objects;
 

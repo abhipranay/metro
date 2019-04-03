@@ -1,4 +1,4 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.route;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Path {
     private List<Hop> lineStations;
-    int totalTime;
+    private int totalTime;
 
     public Path() {
         lineStations = new LinkedList<>();
@@ -25,6 +25,10 @@ public class Path {
 
     public int getTotalTime() {
         return totalTime;
+    }
+
+    public void setTotalTime(int totalTime) {
+        this.totalTime = totalTime;
     }
 
     public List<String> route() {

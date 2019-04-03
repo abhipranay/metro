@@ -1,10 +1,10 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.metrosystem;
 
 import java.util.Calendar;
 
 /** Class contains constraints mentioned in Bonus section */
 public class TravelTimeStrategy {
-    int getTimePerHop(
+    public int getTimePerHop(
             LineStation currentLineStation, LineStation nextLineStation, Calendar currentTime) {
         int dayOfWeek = currentTime.get(Calendar.DAY_OF_WEEK);
         int hourOfDay = currentTime.get(Calendar.HOUR_OF_DAY);
@@ -50,7 +50,7 @@ public class TravelTimeStrategy {
         return totalTime;
     }
 
-    boolean isOperational(LineStation lineStation, Calendar arrivalTime) {
+    public boolean isOperational(LineStation lineStation, Calendar arrivalTime) {
         int hourOfDay = arrivalTime.get(Calendar.HOUR_OF_DAY);
         if (arrivalTime.before(lineStation.getOpeningDate())) {
             return false;

@@ -1,4 +1,4 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.metrosystem;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -21,7 +21,7 @@ public class LineStation {
         this.openingDate = openingDate;
     }
 
-    String getStationCode() {
+    public String getStationCode() {
         return stationCode;
     }
 
@@ -29,7 +29,7 @@ public class LineStation {
         return stationNumber;
     }
 
-    Calendar getOpeningDate() {
+    public Calendar getOpeningDate() {
         return openingDate;
     }
 

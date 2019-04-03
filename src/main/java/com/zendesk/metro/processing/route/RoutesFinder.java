@@ -1,4 +1,9 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.route;
+
+import com.zendesk.metro.processing.metrosystem.LineStation;
+import com.zendesk.metro.processing.metrosystem.MetroStation;
+import com.zendesk.metro.processing.metrosystem.MetroSystem;
+import com.zendesk.metro.processing.metrosystem.TravelTimeStrategy;
 
 import java.util.*;
 
@@ -14,7 +19,8 @@ public class RoutesFinder {
 
     public List<Path> findAllPaths(
             MetroStation source, MetroStation destination, Calendar timeOfTravel) {
-        PriorityQueue<Path> routes = new PriorityQueue<>((o1, o2) -> o2.totalTime - o1.totalTime);
+        PriorityQueue<Path> routes =
+                new PriorityQueue<>((o1, o2) -> o2.getTotalTime() - o1.getTotalTime());
         LinkedList<Path> paths = new LinkedList<>();
         Map<MetroStation, List<Path>> memo = new HashMap<>();
         List<LineStation> lineStationsAtStation = metroSystem.getLineStations(source);
@@ -54,7 +60,7 @@ public class RoutesFinder {
         currentPath.getLineStations().add(new Hop(sourceLineStation, from, timeOfTravel));
         if (sourceLineStation.getMetroStation().equals(destination)) {
             Path newPath = new Path(currentPath);
-            newPath.totalTime = totalTime;
+            newPath.setTotalTime(totalTime);
             if (routes.size() >= maxPaths) {
                 routes.poll();
             }
@@ -73,7 +79,7 @@ public class RoutesFinder {
                     Calendar nextStationArrivalTime = (Calendar) timeOfTravel.clone();
                     nextStationArrivalTime.add(Calendar.MINUTE, travelMinutes);
                     if (timeCalculator.isOperational(lineStation, nextStationArrivalTime)) {
-                        if (routes.size() == 0 || totalTime < routes.peek().totalTime) {
+                        if (routes.size() == 0 || totalTime < routes.peek().getTotalTime()) {
                             findPaths(
                                     lineStation,
                                     destination,

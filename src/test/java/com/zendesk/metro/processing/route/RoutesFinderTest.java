@@ -1,5 +1,7 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.route;
 
+import com.zendesk.metro.processing.metrosystem.MetroStation;
+import com.zendesk.metro.processing.metrosystem.MetroSystem;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +22,7 @@ public class RoutesFinderTest {
     @Autowired private RoutesFinder routesFinder;
 
     @Before
-    public void setUp() throws Exception {}
+    public void setUp() {}
 
     @Test
     public void testRouteFromHollandVillageToBugisInPeakHours() {
@@ -35,7 +37,7 @@ public class RoutesFinderTest {
                         "CC21", "CC20", "CC19", "DT9", "DT10", "DT11", "DT12", "DT13", "DT14");
         Assert.assertEquals("Correct route is calculated", expectedRoute, paths.get(0).route());
         Assert.assertEquals(
-                "Total time in peak hours should be 95 minutes", 95, paths.get(0).totalTime);
+                "Total time in peak hours should be 95 minutes", 95, paths.get(0).getTotalTime());
     }
 
     @Test
@@ -51,7 +53,7 @@ public class RoutesFinderTest {
                         "CC20", "CC19", "DT9", "DT10", "DT11", "DT12");
         Assert.assertEquals("Correct route is calculated", expectedRoute, paths.get(0).route());
         Assert.assertEquals(
-                "Total time in peak hours should be 170 minutes", 170, paths.get(0).totalTime);
+                "Total time in peak hours should be 170 minutes", 170, paths.get(0).getTotalTime());
     }
 
     @Test
@@ -70,6 +72,6 @@ public class RoutesFinderTest {
         List<String> expectedRoute = Arrays.asList("DT12", "DT11", "DT10", "TE11", "TE10");
         Assert.assertEquals("Correct route is calculated", expectedRoute, paths.get(0).route());
         Assert.assertEquals(
-                "Total time in peak hours should be 55 minutes", 55, paths.get(0).totalTime);
+                "Total time in peak hours should be 55 minutes", 55, paths.get(0).getTotalTime());
     }
 }

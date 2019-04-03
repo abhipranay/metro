@@ -1,7 +1,11 @@
 package com.zendesk.metro;
 
-import com.zendesk.metro.processing.*;
 import com.zendesk.metro.processing.contracts.IStationDataReader;
+import com.zendesk.metro.processing.data.CsvStationDataReader;
+import com.zendesk.metro.processing.data.InfoTuple;
+import com.zendesk.metro.processing.metrosystem.MetroSystem;
+import com.zendesk.metro.processing.metrosystem.TravelTimeStrategy;
+import com.zendesk.metro.processing.route.RoutesFinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

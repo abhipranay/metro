@@ -1,4 +1,4 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.data;
 
 import com.zendesk.metro.processing.contracts.IStationDataReader;
 import org.springframework.core.io.ClassPathResource;

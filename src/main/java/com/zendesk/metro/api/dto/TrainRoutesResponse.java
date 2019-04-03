@@ -1,7 +1,7 @@
 package com.zendesk.metro.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.zendesk.metro.processing.Path;
+import com.zendesk.metro.processing.route.Path;
 
 import java.util.List;
 

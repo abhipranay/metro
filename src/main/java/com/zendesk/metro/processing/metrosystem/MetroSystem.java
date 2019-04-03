@@ -1,4 +1,6 @@
-package com.zendesk.metro.processing;
+package com.zendesk.metro.processing.metrosystem;
+
+import com.zendesk.metro.processing.data.InfoTuple;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -50,7 +52,7 @@ public class MetroSystem {
                 });
     }
 
-    List<LineStation> getLineStations(MetroStation metroStation) {
+    public List<LineStation> getLineStations(MetroStation metroStation) {
         return stationLineMap.get(metroStation);
     }
 
@@ -60,7 +62,7 @@ public class MetroSystem {
      * @param lineStation
      * @return
      */
-    List<LineStation> getNextLineStations(LineStation lineStation) {
+    public List<LineStation> getNextLineStations(LineStation lineStation) {
         List<LineStation> next = new ArrayList<>();
 
         Comparator<LineStation> c = Comparator.comparingInt(LineStation::getStationNumber);
@@ -94,7 +96,7 @@ public class MetroSystem {
         return next;
     }
 
-    int totalLines() {
+    public int totalLines() {
         return lineStationsOnLine.keySet().size();
     }
 }
